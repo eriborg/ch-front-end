@@ -6,8 +6,6 @@ export default class Color extends React.Component {
         this.state = {
             color:'blue'
         };
-
-        this._colors = props.colors;
     }
 
     _handleChange = (event) =>{
@@ -20,11 +18,11 @@ export default class Color extends React.Component {
         return(
             <div>
                 <select onChange={this._handleChange}>
-                    {this._colors.map((color)=>{
+                    {this.props.colorList.map((color)=>{
                         return <option value={color}>{color}</option>;
                     })}
                 </select>
-                <div>{this.state.color}</div>
+                <div style={{backgroundColor:this.state.color}}>{this.state.color}</div>
             </div>
         );
     }
